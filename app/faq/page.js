@@ -42,9 +42,9 @@ const faqs = [
 ]
 
 export default function FAQ() {
-  const [openIdx, setOpenIdx] = useState<number | null>(null)
+  const [openIdx, setOpenIdx] = useState(null)
 
-  const toggle = (i: number) =>
+  const toggle = (i) => 
     setOpenIdx(openIdx === i ? null : i)
 
   return (
