@@ -1,4 +1,3 @@
-// components/NavBar.js
 'use client'
 import { useState } from 'react'
 import Image from 'next/image'
@@ -11,17 +10,16 @@ export default function NavBar() {
   return (
     <nav className="fixed top-0 w-full bg-white/90 backdrop-blur z-30 shadow">
       <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-        {/* Logo + Title */}
+        {/* Logo Only */}
         <Link href="/">
-          <a className="flex items-center space-x-3">
-            <Image src={logo} alt="Farm Pass Logo" width={48} height={48} />
-            <span className="text-xl font-semibold text-green-800">Farm Pass</span>
+          <a>
+            <Image src={logo} alt="Farm Pass Logo" width={64} height={64} />
           </a>
         </Link>
 
         {/* Hamburger (mobile) */}
         <button
-          className="md:hidden p-2 rounded focus:outline-none focus:ring"
+          className="md:hidden p-2 rounded focus:outline-none"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
@@ -49,11 +47,14 @@ export default function NavBar() {
       {/* Mobile Menu */}
       {open && (
         <div className="md:hidden bg-white shadow-md">
-          <Link href="/"><a className="block px-4 py-3 text-gray-700 hover:bg-gray-100">Home</a></Link>
-          <Link href="/about"><a className="block px-4 py-3 text-gray-700 hover:bg-gray-100">About</a></Link>
-          <Link href="/faq"><a className="block px-4 py-3 text-gray-700 hover:bg-gray-100">FAQ</a></Link>
-          <Link href="/for-farms"><a className="block px-4 py-3 text-gray-700 hover:bg-gray-100">For Farms</a></Link>
-          <Link href="/contact"><a className="block px-4 py-3 text-gray-700 hover:bg-gray-100">Contact</a></Link>
+          {['/', '/about', '/faq', '/for-farms', '/contact'].map((href, i) => {
+            const label = ['Home','About','FAQ','For Farms','Contact'][i]
+            return (
+              <Link key={href} href={href}>
+                <a className="block px-4 py-3 text-gray-700 hover:bg-gray-100">{label}</a>
+              </Link>
+            )
+          })}
         </div>
       )}
     </nav>
