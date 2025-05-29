@@ -10,7 +10,7 @@ export default function RootLayout({ children }) {
         {/* Fixed nav is 6rem tall (h-24) */}
         <NavBar />
 
-        {/* Push all page content down by exactly 6rem */}
+        {/* Push all page content down by exactly 6rem to fix sizing isusue*/}
         <main className="pt-24">
           {children}
         </main>
