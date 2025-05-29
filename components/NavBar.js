@@ -1,19 +1,42 @@
 // components/NavBar.js
+'use client'
+import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import logo from '../public/logo.png'
 
 export default function NavBar() {
+  const [open, setOpen] = useState(false)
+
   return (
-    <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md z-20 shadow">
+    <nav className="fixed top-0 w-full bg-white/90 backdrop-blur z-30 shadow">
       <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
         {/* Logo + Title */}
-        <Link href="/" className="flex items-center space-x-3">
-          <Image src={logo} alt="Farm Pass Logo" width={48} height={48} />
-          <span className="text-xl font-semibold text-green-800">Farm Pass</span>
+        <Link href="/">
+          <a className="flex items-center space-x-3">
+            <Image src={logo} alt="Farm Pass Logo" width={48} height={48} />
+            <span className="text-xl font-semibold text-green-800">Farm Pass</span>
+          </a>
         </Link>
 
-        {/* Desktop Nav */}
+        {/* Hamburger (mobile) */}
+        <button
+          className="md:hidden p-2 rounded focus:outline-none focus:ring"
+          onClick={() => setOpen(!open)}
+          aria-label="Toggle menu"
+        >
+          {open ? (
+            <svg className="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          ) : (
+            <svg className="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 8h16M4 16h16"/>
+            </svg>
+          )}
+        </button>
+
+        {/* Desktop Links */}
         <div className="hidden md:flex space-x-6 text-base">
           <Link href="/"><a className="text-gray-700 hover:text-green-700">Home</a></Link>
           <Link href="/about"><a className="text-gray-700 hover:text-green-700">About</a></Link>
@@ -22,6 +45,17 @@ export default function NavBar() {
           <Link href="/contact"><a className="text-gray-700 hover:text-green-700">Contact</a></Link>
         </div>
       </div>
+
+      {/* Mobile Menu */}
+      {open && (
+        <div className="md:hidden bg-white shadow-md">
+          <Link href="/"><a className="block px-4 py-3 text-gray-700 hover:bg-gray-100">Home</a></Link>
+          <Link href="/about"><a className="block px-4 py-3 text-gray-700 hover:bg-gray-100">About</a></Link>
+          <Link href="/faq"><a className="block px-4 py-3 text-gray-700 hover:bg-gray-100">FAQ</a></Link>
+          <Link href="/for-farms"><a className="block px-4 py-3 text-gray-700 hover:bg-gray-100">For Farms</a></Link>
+          <Link href="/contact"><a className="block px-4 py-3 text-gray-700 hover:bg-gray-100">Contact</a></Link>
+        </div>
+      )}
     </nav>
   )
 }
