@@ -6,11 +6,13 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head />
       <body>
-        {/* Fixed navbar is 6rem tall (h-24) */}
+        {/* Fixed navbar is h-24 (6rem) */}
         <NavBar />
 
-        {/* Push all page content down by exactly 6rem */}
-        <main className="mt-24">{children}</main>
+        {/* Push everything down by 6rem */}
+        <main className="pt-24">
+          {children}
+        </main>
       </body>
     </html>
   )
