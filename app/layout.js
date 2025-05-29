@@ -1,3 +1,4 @@
+// app/layout.js
 import './globals.css'
 import NavBar from '../components/NavBar'
 
@@ -6,10 +7,10 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head />
       <body>
-        {/* Fixed navbar is h-24 (6rem) */}
+        {/* Fixed nav is 6rem tall (h-24) */}
         <NavBar />
 
-        {/* Push everything down by 6rem */}
+        {/* Push all page content down by exactly 6rem */}
         <main className="pt-24">
           {children}
         </main>
