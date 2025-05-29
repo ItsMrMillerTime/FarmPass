@@ -19,12 +19,12 @@ export default function NavBar() {
   return (
     <nav className="fixed inset-x-0 top-0 bg-white/90 backdrop-blur z-50 shadow-md">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-24 flex items-center justify-between">
-        {/* Logo (96×96) */}
+        {/* Logo */}
         <Link href="/" className="flex-shrink-0">
           <Image src={logo} alt="Farm Pass Logo" width={96} height={96} priority />
         </Link>
 
-        {/* Desktop Links (show ≥640px) */}
+        {/* Desktop Links (visible ≥640px) */}
         <div className="hidden sm:flex items-center space-x-10 text-xl font-medium">
           {LINKS.map(({ label, href }) => (
             <Link
@@ -37,10 +37,10 @@ export default function NavBar() {
           ))}
         </div>
 
-        {/* Mobile Hamburger (show <640px) */}
+        {/* Mobile Hamburger (visible <640px) */}
         <button
           onClick={() => setOpen(!open)}
-          className="sm:hidden p-2 rounded focus:outline-none"
+          className="block sm:hidden p-2 rounded focus:outline-none"
           aria-label="Toggle menu"
         >
           {open ? (
@@ -55,9 +55,9 @@ export default function NavBar() {
         </button>
       </div>
 
-      {/* Mobile Menu (slides down beneath nav) */}
+      {/* Mobile Slide-Down Menu */}
       {open && (
-        <div className="sm:hidden bg-white shadow-md">
+        <div className="block sm:hidden bg-white shadow-md">
           {LINKS.map(({ label, href }) => (
             <Link
               key={href}
