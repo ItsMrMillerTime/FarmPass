@@ -1,11 +1,27 @@
+// app/page.js
 export default function Home() {
   return (
     <main className="bg-white text-gray-900">
-      <section className="h-screen bg-[url('https://source.unsplash.com/1600x900/?farm,kids')] bg-cover bg-center flex items-center justify-center text-white text-center px-4">
-        <div>
-          <h1 className="text-4xl md:text-6xl font-bold mb-4">Farm Pass</h1>
-          <p className="text-lg md:text-2xl max-w-xl mx-auto mb-6">One pass to every fun farm on Long Island.</p>
-          <a href="#signup" className="bg-white text-green-700 px-6 py-3 rounded font-semibold shadow hover:bg-green-100">Get Started</a>
+      {/* Hero */}
+      <section className="relative h-screen">
+        {/* Background image */}
+        <div
+          className="absolute inset-0 bg-[url('https://source.unsplash.com/1600x900/?long-island,farm,summer')] bg-cover bg-center"
+        />
+        {/* Gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/10" />
+        {/* Content */}
+        <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">Farm Pass</h1>
+          <p className="text-lg md:text-2xl text-white max-w-xl mb-6">
+            One pass to every fun farm on Long Island.
+          </p>
+          <a
+            href="#signup"
+            className="bg-green-700 text-white px-6 py-3 rounded-md font-semibold shadow-lg hover:bg-green-800 transition"
+          >
+            Get Started
+          </a>
         </div>
       </section>
 
