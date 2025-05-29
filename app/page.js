@@ -11,7 +11,7 @@ export default function Home() {
         {/* Gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/10" />
         {/* Content */}
-        <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
+        <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4 sm:px-6">
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">Farm Pass</h1>
           <p className="text-lg md:text-2xl text-white max-w-xl mb-6">
             One pass to every fun farm on Long Island.
