@@ -4,15 +4,14 @@ import Image from 'next/image'
 export default function Home() {
   return (
     <main className="bg-white text-gray-900">
-
-      {/* Hero */}
-      <section className="relative h-screen">
+      {/* Hero: 65vh tall and object-top to crop bottom */}
+      <section className="relative h-[65vh]">
         {/* Background image */}
         <Image
           src="/hero.jpg"
           alt="Long Island farm"
           fill
-          className="object-cover"
+          className="object-cover object-top"
           priority
         />
 
