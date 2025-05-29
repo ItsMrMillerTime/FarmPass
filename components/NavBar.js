@@ -9,19 +9,29 @@ export default function NavBar() {
 
   return (
     <nav className="fixed top-0 w-full bg-white/90 backdrop-blur z-30 shadow-md">
-      <div className="max-w-6xl mx-auto px-4 md:px-6 lg:px-8 h-20 flex items-center justify-between">
-        {/* Logo Only, enlarged */}
+      <div className="max-w-6xl mx-auto px-4 md:px-6 lg:px-8 h-24 flex items-center justify-between">
+        {/* Logo */}
         <Link href="/" className="flex-shrink-0">
           <Image src={logo} alt="Farm Pass Logo" width={80} height={80} />
         </Link>
 
         {/* Desktop Links */}
-        <div className="hidden md:flex space-x-8 text-base">
-          <Link href="/" className="text-gray-700 hover:text-green-700">Home</Link>
-          <Link href="/about" className="text-gray-700 hover:text-green-700">About</Link>
-          <Link href="/faq" className="text-gray-700 hover:text-green-700">FAQ</Link>
-          <Link href="/for-farms" className="text-gray-700 hover:text-green-700">For Farms</Link>
-          <Link href="/contact" className="text-gray-700 hover:text-green-700">Contact</Link>
+        <div className="hidden md:flex gap-8 text-lg font-medium">
+          {[
+            { label: 'Home', href: '/' },
+            { label: 'About', href: '/about' },
+            { label: 'FAQ', href: '/faq' },
+            { label: 'For Farms', href: '/for-farms' },
+            { label: 'Contact', href: '/contact' },
+          ].map(({ label, href }) => (
+            <Link
+              key={href}
+              href={href}
+              className="text-gray-800 hover:text-green-700 hover:underline transition"
+            >
+              {label}
+            </Link>
+          ))}
         </div>
 
         {/* Mobile Hamburger */}
@@ -45,14 +55,19 @@ export default function NavBar() {
       {/* Mobile Menu */}
       {open && (
         <div className="md:hidden bg-white shadow-md">
-          {['Home','About','FAQ','For Farms','Contact'].map((label, i) => {
-            const href = ['/', '/about', '/faq', '/for-farms', '/contact'][i]
-            return (
-              <Link key={href} href={href}>
-                <a className="block px-4 py-3 text-gray-700 hover:bg-gray-100">{label}</a>
-              </Link>
-            )
-          })}
+          {[
+            { label: 'Home', href: '/' },
+            { label: 'About', href: '/about' },
+            { label: 'FAQ', href: '/faq' },
+            { label: 'For Farms', href: '/for-farms' },
+            { label: 'Contact', href: '/contact' },
+          ].map(({ label, href }) => (
+            <Link key={href} href={href}>
+              <a className="block px-6 py-4 text-lg text-gray-800 hover:bg-gray-100 hover:underline">
+                {label}
+              </a>
+            </Link>
+          ))}
         </div>
       )}
     </nav>
