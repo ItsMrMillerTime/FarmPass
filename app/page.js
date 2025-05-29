@@ -4,31 +4,31 @@ import Image from 'next/image'
 export default function Home() {
   return (
     <>
-      {/* Hero */}
-      <section className="relative h-[65vh]">
-        <Image
-          src="/hero.jpg"
-          alt="Long Island farm"
-          fill
-          className="object-cover object-top"
-          priority
-        />
-        <div className="absolute inset-0 bg-black/30" />
-        <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4 sm:px-6">
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
-            Farm Pass
-          </h1>
-          <p className="text-lg md:text-2xl text-white max-w-xl mb-6">
-            One pass to every fun farm on Long Island.
-          </p>
-          <a
-            href="#signup"
-            className="bg-green-700 text-white px-6 py-3 rounded-md font-semibold shadow-lg hover:bg-green-800 transition"
-          >
-            Get Started
-          </a>
-        </div>
-      </section>
+      {/* Hero: 65vh tall showing the bottom of the image */}
+<section className="relative h-[65vh] overflow-hidden">
+  <Image
+    src="/hero.jpg"
+    alt="Long Island farm"
+    fill
+    className="object-cover object-bottom"
+    priority
+  />
+  <div className="absolute inset-0 bg-black/30" />
+  <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4 sm:px-6">
+    <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
+      Farm Pass
+    </h1>
+    <p className="text-lg md:text-2xl text-white max-w-xl mb-6">
+      One pass to every fun farm on Long Island.
+    </p>
+    <a
+      href="#signup"
+      className="bg-green-700 text-white px-6 py-3 rounded-md font-semibold shadow-lg hover:bg-green-800 transition"
+    >
+      Get Started
+    </a>
+  </div>
+</section>
 
       {/* Why Farm Pass */}
       <section className="py-16 px-4 max-w-5xl mx-auto" id="why-it-works">
