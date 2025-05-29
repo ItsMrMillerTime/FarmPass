@@ -1,16 +1,25 @@
 // app/page.js
+import Image from 'next/image'
+
 export default function Home() {
   return (
     <main className="bg-white text-gray-900">
+
       {/* Hero */}
       <section className="relative h-screen">
         {/* Background image */}
-        <div
-          className="absolute inset-0 bg-[url('https://source.unsplash.com/1600x900/?long-island,farm,summer')] bg-cover bg-center"
+        <Image
+          src="/hero.jpg"
+          alt="Long Island farm"
+          fill
+          className="object-cover"
+          priority
         />
-        {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/10" />
-        {/* Content */}
+
+        {/* Optional Dark Overlay for text contrast */}
+        <div className="absolute inset-0 bg-black/30" />
+
+        {/* Hero Content */}
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4 sm:px-6">
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">Farm Pass</h1>
           <p className="text-lg md:text-2xl text-white max-w-xl mb-6">
