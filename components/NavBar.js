@@ -16,7 +16,7 @@ export default function NavBar() {
         </Link>
 
         {/* Desktop Links */}
-        <div className="hidden md:flex gap-8 text-lg font-medium">
+        <div className="hidden md:flex items-center space-x-8 text-lg font-medium">
           {[
             { label: 'Home', href: '/' },
             { label: 'About', href: '/about' },
