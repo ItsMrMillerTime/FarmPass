@@ -8,19 +8,26 @@ export default function NavBar() {
   const [open, setOpen] = useState(false)
 
   return (
-    <nav className="fixed top-0 w-full bg-white/90 backdrop-blur z-30 shadow">
-      <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-        {/* Logo Only */}
-        <Link href="/">
-          <a>
-            <Image src={logo} alt="Farm Pass Logo" width={64} height={64} />
-          </a>
+    <nav className="fixed top-0 w-full bg-white/90 backdrop-blur z-30 shadow-md">
+      <div className="max-w-6xl mx-auto px-4 md:px-6 lg:px-8 h-20 flex items-center justify-between">
+        {/* Logo Only, enlarged */}
+        <Link href="/" className="flex-shrink-0">
+          <Image src={logo} alt="Farm Pass Logo" width={80} height={80} />
         </Link>
 
-        {/* Hamburger (mobile) */}
+        {/* Desktop Links */}
+        <div className="hidden md:flex space-x-8 text-base">
+          <Link href="/" className="text-gray-700 hover:text-green-700">Home</Link>
+          <Link href="/about" className="text-gray-700 hover:text-green-700">About</Link>
+          <Link href="/faq" className="text-gray-700 hover:text-green-700">FAQ</Link>
+          <Link href="/for-farms" className="text-gray-700 hover:text-green-700">For Farms</Link>
+          <Link href="/contact" className="text-gray-700 hover:text-green-700">Contact</Link>
+        </div>
+
+        {/* Mobile Hamburger */}
         <button
-          className="md:hidden p-2 rounded focus:outline-none"
           onClick={() => setOpen(!open)}
+          className="md:hidden p-2 rounded focus:outline-none"
           aria-label="Toggle menu"
         >
           {open ? (
@@ -33,22 +40,13 @@ export default function NavBar() {
             </svg>
           )}
         </button>
-
-        {/* Desktop Links */}
-        <div className="hidden md:flex space-x-6 text-base">
-          <Link href="/"><a className="text-gray-700 hover:text-green-700">Home</a></Link>
-          <Link href="/about"><a className="text-gray-700 hover:text-green-700">About</a></Link>
-          <Link href="/faq"><a className="text-gray-700 hover:text-green-700">FAQ</a></Link>
-          <Link href="/for-farms"><a className="text-gray-700 hover:text-green-700">For Farms</a></Link>
-          <Link href="/contact"><a className="text-gray-700 hover:text-green-700">Contact</a></Link>
-        </div>
       </div>
 
       {/* Mobile Menu */}
       {open && (
         <div className="md:hidden bg-white shadow-md">
-          {['/', '/about', '/faq', '/for-farms', '/contact'].map((href, i) => {
-            const label = ['Home','About','FAQ','For Farms','Contact'][i]
+          {['Home','About','FAQ','For Farms','Contact'].map((label, i) => {
+            const href = ['/', '/about', '/faq', '/for-farms', '/contact'][i]
             return (
               <Link key={href} href={href}>
                 <a className="block px-4 py-3 text-gray-700 hover:bg-gray-100">{label}</a>
