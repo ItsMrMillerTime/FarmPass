@@ -1,24 +1,81 @@
+'use client'
+
+import { useState } from 'react'
+
+const faqs = [
+  {
+    question: 'What is Farm Pass?',
+    answer: `Farm Pass is a seasonal membership that gives families unlimited access
+    to local Long Island farms with playgrounds, petting zoos, hayrides, and more—
+    all for one upfront price.`,
+  },
+  {
+    question: 'How much does it cost?',
+    answer: `Pricing depends on the pass you choose:
+    • Single-Farm Pass (one location): around $60/year  
+    • All-Farm Pass (all participating farms): around $150/year  
+    One-time tickets ($20-$30) will also be available for purchase.`,
+  },
+  {
+    question: 'What if a farm is unexpectedly closed?',
+    answer: `Farm schedules are updated daily. If one farm is closed, you can
+    simply visit another open farm with your pass. We’ll also send push or email
+    alerts for any last-minute closures.`,
+  },
+  {
+    question: 'Can I bring guests or extra children?',
+    answer: `Guest and age policies vary by farm. Many farms allow you to purchase
+    additional guest passes at the gate or via Farm Pass. Children under 2 are
+    typically free—check each farm’s details in the app.`,
+  },
+  {
+    question: 'Is my pass refundable or transferable?',
+    answer: `All sales are final for the season. However, if you move out of Suffolk
+    County or experience a medical emergency, please contact us at
+    support@farmpass.com to discuss options.`,
+  },
+  {
+    question: 'How do I sign up my farm?',
+    answer: `Visit our “For Farms” page, fill out the contact form, and our team will
+    reach out with onboarding details—no upfront cost required to list.`,
+  },
+]
+
 export default function FAQ() {
+  const [openIdx, setOpenIdx] = useState<number | null>(null)
+
+  const toggle = (i: number) =>
+    setOpenIdx(openIdx === i ? null : i)
+
   return (
     <div className="max-w-4xl mx-auto py-16 px-4">
-      <h1 className="text-3xl font-bold mb-8">Frequently Asked Questions</h1>
-      <div className="space-y-6">
-        <div>
-          <h2 className="text-xl font-semibold">What is Farm Pass?</h2>
-          <p>Farm Pass is a seasonal membership that gives families access to local Long Island farms with child-friendly activities—like playgrounds, petting zoos, and hayrides—without paying each time.</p>
-        </div>
-        <div>
-          <h2 className="text-xl font-semibold">How much does it cost?</h2>
-          <p>Pricing varies. A single-farm season pass may cost around $60, while an all-farm pass covering multiple locations will be higher. One-time tickets will also be available.</p>
-        </div>
-        <div>
-          <h2 className="text-xl font-semibold">What happens if a farm is closed?</h2>
-          <p>Farm schedules are updated in the app and website. If a farm is closed unexpectedly, we’ll notify you. Your pass is valid at other open farms.</p>
-        </div>
-        <div>
-          <h2 className="text-xl font-semibold">Can I bring guests?</h2>
-          <p>Guest policies vary by farm. Many allow guest passes to be purchased at the gate or online through Farm Pass.</p>
-        </div>
+      <h1 className="text-4xl font-bold mb-8 text-center">Frequently Asked Questions</h1>
+      <div className="divide-y">
+        {faqs.map((faq, i) => (
+          <div key={i} className="py-4">
+            <button
+              onClick={() => toggle(i)}
+              className="w-full flex justify-between items-center text-left"
+            >
+              <span className="text-xl font-medium text-gray-800">{faq.question}</span>
+              <svg
+                className={`w-6 h-6 text-gray-600 transform transition-transform ${
+                  openIdx === i ? 'rotate-180' : ''
+                }`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            {openIdx === i && (
+              <p className="mt-2 text-gray-700 leading-relaxed">
+                {faq.answer}
+              </p>
+            )}
+          </div>
+        ))}
       </div>
     </div>
   )
