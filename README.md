@@ -1,4 +1,4 @@
-# Farm Pass — Static Landing Page
+# Farm Pass
 
 A simple, responsive static website for the Farm Pass app idea.  
 This repo provides a quick “launch pad” you can host (e.g. via GitHub Pages) while you build out the full backend.
