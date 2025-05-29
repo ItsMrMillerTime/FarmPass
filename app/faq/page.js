@@ -37,7 +37,7 @@ const faqs = [
   {
     question: 'How do I sign up my farm?',
     answer: `Visit our “For Farms” page, fill out the contact form, and our team will
-    reach out with onboarding details—no upfront cost required to list.`,
+    reach out with onboarding details.`,
   },
 ]
 
