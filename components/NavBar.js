@@ -12,17 +12,17 @@ export default function NavBar() {
         <div className="flex justify-between h-16">
           
           {/* Logo Section */}
-          <div className="flex-shrink-0 flex items-center">
-            <Link href="/">
-              <a>
-                <img
-                  src="/logo.png"
-                  alt="Farm Hopper Pass"
-                  className="h-8 w-auto"
-                />
-              </a>
-            </Link>
-          </div>
+<div className="flex-shrink-0 flex items-center">
+  <Link href="/">
+    <a>
+      <img
+        src="/logo.png"
+        alt="Farm Hopper Pass"
+        className="h-12 sm:h-16 w-auto"
+      />
+    </a>
+  </Link>
+</div>
 
           {/* Desktop Menu */}
           <div className="hidden sm:flex sm:space-x-8 sm:items-center">
