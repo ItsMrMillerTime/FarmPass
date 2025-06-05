@@ -18,7 +18,7 @@ export default function NavBar() {
       <img
         src="/logo.png"
         alt="Farm Hopper Pass"
-        className="h-12 sm:h-16 w-auto"
+        className="h-20 sm:h-24 w-auto"
       />
     </a>
   </Link>
