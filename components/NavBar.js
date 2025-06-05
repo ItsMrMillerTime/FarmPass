@@ -1,75 +1,154 @@
-'use client'
-
-import { useState } from 'react'
-import Image from 'next/image'
-import Link from 'next/link'
-import logo from '../public/logo.png'
-
-const LINKS = [
-  { label: 'Home',      href: '/' },
-  { label: 'About',     href: '/about' },
-  { label: 'FAQ',       href: '/faq' },
-  { label: 'For Farms', href: '/for-farms' },
-  { label: 'Contact',   href: '/contact' },
-]
+// /components/NavBar.js
+import { useState } from 'react';
+import Link from 'next/link';
 
 export default function NavBar() {
-  const [open, setOpen] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <nav className="fixed inset-x-0 top-0 bg-white/90 backdrop-blur z-50 shadow-md">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-24 flex items-center justify-between">
-        {/* Logo */}
-        <Link href="/" className="flex-shrink-0">
-          <Image src={logo} alt="Farm Pass Logo" width={96} height={96} priority />
-        </Link>
-
-        {/* Desktop Links (visible ≥640px) */}
-        <div className="hidden sm:flex items-center space-x-10 text-xl font-medium">
-          {LINKS.map(({ label, href }) => (
-            <Link
-              key={href}
-              href={href}
-              className="text-gray-800 hover:text-green-700 hover:underline transition"
-            >
-              {label}
+    <nav className="sticky top-0 z-50 bg-white shadow">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between h-16">
+          
+          {/* Logo Section */}
+          <div className="flex-shrink-0 flex items-center">
+            <Link href="/">
+              <a>
+                <img
+                  src="/logo.png"
+                  alt="Farm Hopper Pass"
+                  className="h-8 w-auto"
+                />
+              </a>
             </Link>
-          ))}
-        </div>
+          </div>
 
-        {/* Mobile Hamburger (visible <640px) */}
-        <button
-          onClick={() => setOpen(!open)}
-          className="block sm:hidden p-2 rounded focus:outline-none"
-          aria-label="Toggle menu"
-        >
-          {open ? (
-            <svg className="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"/>
-            </svg>
-          ) : (
-            <svg className="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 8h16M4 16h16"/>
-            </svg>
-          )}
-        </button>
+          {/* Desktop Menu */}
+          <div className="hidden sm:flex sm:space-x-8 sm:items-center">
+            <Link href="/">
+              <a className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
+                Home
+              </a>
+            </Link>
+            <Link href="/about">
+              <a className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
+                About
+              </a>
+            </Link>
+            <Link href="/faq">
+              <a className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
+                FAQ
+              </a>
+            </Link>
+            <Link href="/for-farms">
+              <a className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
+                For Farms
+              </a>
+            </Link>
+            <Link href="/contact">
+              <a className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
+                Contact
+              </a>
+            </Link>
+          </div>
+
+          {/* Mobile menu button (visible <640px) */}
+          <div className="flex items-center sm:hidden">
+            <button
+              type="button"
+              aria-controls="mobile-menu"
+              aria-expanded={mobileMenuOpen}
+              className="inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            >
+              {/* Hamburger icon */}
+              {mobileMenuOpen ? (
+                // X icon when open
+                <svg
+                  className="block h-6 w-6"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              ) : (
+                // Hamburger icon when closed
+                <svg
+                  className="block h-6 w-6"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                </svg>
+              )}
+            </button>
+          </div>
+        </div>
       </div>
 
-      {/* Mobile Slide-Down Menu */}
-      {open && (
-        <div className="block sm:hidden bg-white shadow-md">
-          {LINKS.map(({ label, href }) => (
-            <Link
-              key={href}
-              href={href}
-              className="block px-6 py-3 text-lg text-gray-800 hover:bg-gray-100 hover:underline transition"
-              onClick={() => setOpen(false)}
-            >
-              {label}
+      {/* Mobile Menu Panel */}
+      {mobileMenuOpen && (
+        <div className="sm:hidden" id="mobile-menu">
+          <div className="px-2 pt-2 pb-3 space-y-1">
+            <Link href="/">
+              <a
+                onClick={() => setMobileMenuOpen(false)}
+                className="block text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-base font-medium"
+              >
+                Home
+              </a>
             </Link>
-          ))}
+            <Link href="/about">
+              <a
+                onClick={() => setMobileMenuOpen(false)}
+                className="block text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-base font-medium"
+              >
+                About
+              </a>
+            </Link>
+            <Link href="/faq">
+              <a
+                onClick={() => setMobileMenuOpen(false)}
+                className="block text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-base font-medium"
+              >
+                FAQ
+              </a>
+            </Link>
+            <Link href="/for-farms">
+              <a
+                onClick={() => setMobileMenuOpen(false)}
+                className="block text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-base font-medium"
+              >
+                For Farms
+              </a>
+            </Link>
+            <Link href="/contact">
+              <a
+                onClick={() => setMobileMenuOpen(false)}
+                className="block text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-base font-medium"
+              >
+                Contact
+              </a>
+            </Link>
+          </div>
         </div>
       )}
     </nav>
-  )
+  );
 }
