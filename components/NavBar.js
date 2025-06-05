@@ -9,7 +9,7 @@ export default function NavBar() {
   return (
     <nav className="sticky top-0 z-50 bg-white shadow">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
+        <div className="flex justify-between h-40">
           
           {/* Logo Section */}
 <div className="flex-shrink-0 flex items-center">
@@ -18,7 +18,7 @@ export default function NavBar() {
       <img
         src="/logo.png"
         alt="Farm Hopper Pass"
-        className="h-20 sm:h-20 w-auto"
+        className="h-40 sm:h-40 w-auto"
       />
     </a>
   </Link>
