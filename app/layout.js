@@ -2,18 +2,17 @@
 import './globals.css'
 import NavBar from '../components/NavBar'
 
+export const metadata = {
+  title: 'Farm Hopper Pass',
+  description: 'Seasonal membership to kid-friendly farms',
+}
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <head />
       <body>
-        {/* Fixed nav is 6rem tall (h-24) */}
         <NavBar />
-
-        {/* Push all page content down by exactly 6rem to fix sizing isusue*/}
-        <main className="pt-24">
-          {children}
-        </main>
+        {children}
       </body>
     </html>
   )
