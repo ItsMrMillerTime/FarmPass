@@ -1,7 +1,7 @@
 // app/for-farms/page.js
 export const metadata = {
-  title: 'Partner with Farm Pass',
-  description: 'Join Farm Pass to drive repeat visits, loyalty, and revenue for your farm.'
+  title: 'Partner with Farm Hopper Pass',
+  description: 'Join Farm Hopper Pass to drive repeat visits, loyalty, and revenue for your farm.'
 }
 
 export default function ForFarms() {
@@ -10,9 +10,9 @@ export default function ForFarms() {
       
       {/* 1. Intro */}
       <section>
-        <h1 className="text-4xl font-bold mb-4 text-center">Partner with Farm Pass</h1>
+        <h1 className="text-4xl font-bold mb-4 text-center">Partner with Farm Hopper Pass</h1>
         <p className="text-lg leading-relaxed text-center">
-          Farm Pass brings more families through your gates—turning one-time visitors into
+          Farm Hopper Pass brings more families through your gates—turning one-time visitors into
           loyal fans who come back again and again. No upfront cost, just a shared mission
           to make farm life accessible and memorable.
         </p>
@@ -24,15 +24,15 @@ export default function ForFarms() {
         <p className="text-lg leading-relaxed">
           I’ve built this program because I’m a parent who wants to take my kids to our
           favorite local farm every week—but $40 per visit just doesn’t make sense when
-          they decide to run off or move on. With Farm Pass, those same families feel
+          they decide to run off or move on. With Farm Hopper Pass, those same families feel
           free to return multiple times a month—giving farms like yours consistent
           traffic, more upsell opportunities, and true brand ambassadors.
         </p>
       </section>
 
-      {/* 3. Why Join Farm Pass */}
+      {/* 3. Why Join Farm Hopper Pass */}
       <section>
-        <h2 className="text-3xl font-semibold mb-3">Why Join Farm Pass?</h2>
+        <h2 className="text-3xl font-semibold mb-3">Why Join Farm Hopper Pass?</h2>
         <ul className="list-disc list-inside space-y-2 text-lg">
           <li>
             <strong>Steady Foot Traffic:</strong> Members visit farms repeatedly,
@@ -65,7 +65,7 @@ export default function ForFarms() {
           <li><strong>We Handle Everything:</strong> Digital ticketing, QR scanning,
             marketing emails, and member support.</li>
           <li><strong>Earn Commission:</strong> You receive a percentage of every
-            Farm Pass visit—guaranteed revenue, no per-ticket hassle.</li>
+            Farm Hopper Pass visit—guaranteed revenue, no per-ticket hassle.</li>
           <li><strong>Access Analytics:</strong> See who’s visiting, when, and what
             activities they love most.</li>
           <li><strong>Grow Together:</strong> Be featured in Suffolk-wide campaigns
@@ -78,7 +78,7 @@ export default function ForFarms() {
         <h2 className="text-3xl font-semibold mb-4">Ready to Grow Your Farm’s Community?</h2>
         <p className="mb-6 text-lg leading-relaxed">
           Fill out our partner form and we’ll be in touch within 48 hours to onboard
-          your farm, train your team, and get you in front of hundreds of Farm Pass families.
+          your farm, train your team, and get you in front of hundreds of Farm Hopper Pass families.
         </p>
         <a
           href="/contact"

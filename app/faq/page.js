@@ -4,16 +4,16 @@ import { useState } from 'react'
 
 const faqs = [
   {
-    question: 'What is Farm Pass?',
-    answer: `Farm Pass is a seasonal membership that gives families unlimited access
+    question: 'What is Farm Hopper Pass?',
+    answer: `Farm Hopper Pass is a seasonal membership that gives families unlimited access
     to local Long Island farms with playgrounds, petting zoos, hayrides, and more—
     all for one upfront price.`,
   },
   {
     question: 'How much does it cost?',
     answer: `Pricing depends on the pass you choose:
-    • Single-Farm Pass (one location): around $60/year  
-    • All-Farm Pass (all participating farms): around $150/year  
+    • Single-Farm Hopper Pass (one location): around $60/year  
+    • All-Farm Hopper Pass (all participating farms): around $150/year  
     One-time tickets ($20-$30) will also be available for purchase.`,
   },
   {
@@ -25,7 +25,7 @@ const faqs = [
   {
     question: 'Can I bring guests or extra children?',
     answer: `Guest and age policies vary by farm. Many farms allow you to purchase
-    additional guest passes at the gate or via Farm Pass. Children under 2 are
+    additional guest passes at the gate or via Farm Hopper Pass. Children under 2 are
     typically free—check each farm’s details in the app.`,
   },
   {

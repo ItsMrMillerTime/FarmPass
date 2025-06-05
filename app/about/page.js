@@ -6,7 +6,7 @@ export default function About() {
       <section>
         <h1 className="text-4xl font-bold mb-4">Our Mission</h1>
         <p className="text-lg leading-relaxed">
-          At Farm Pass, our mission is to unlock the magic of Long Island’s farms for families,
+          At Farm Hopper Pass, our mission is to unlock the magic of Long Island’s farms for families,
           making visits stress-free and affordable. We believe every child deserves the chance
           to explore, learn, and play on a real farm—without parents worrying about wasted
           ticket fees.
@@ -27,13 +27,13 @@ export default function About() {
       <section>
         <h2 className="text-3xl font-semibold mb-3">Our Solution</h2>
         <p className="text-lg leading-relaxed mb-4">
-          Farm Pass offers seasonal memberships that let you visit one farm or every participating
+          Farm Hopper Pass offers seasonal memberships that let you visit one farm or every participating
           farm as many times as you like. One upfront price unlocks playgrounds, petting zoos,
           hayrides, and more—so you can go with confidence and stay as long as the fun lasts.
         </p>
         <ul className="list-disc list-inside text-lg space-y-2">
-          <li>One-Farm Pass: Perfect for your favorite local spot</li>
-          <li>All-Farm Pass: Explore the best farms across Suffolk County</li>
+          <li>One-Farm Hopper Pass: Perfect for your favorite local spot</li>
+          <li>All-Farm Hopper Pass: Explore the best farms across Suffolk County</li>
           <li>Flexible: Upgrade or pause your pass at any time</li>
         </ul>
       </section>
@@ -64,7 +64,7 @@ export default function About() {
         <h2 className="text-3xl font-semibold mb-3">Looking Ahead</h2>
         <p className="text-lg leading-relaxed">
           This is just the beginning. In the future, we’ll add event tickets, farm-to-table
-          market access, and educational programs. Our goal is to make Farm Pass the gateway
+          market access, and educational programs. Our goal is to make Farm Hopper Pass the gateway
           to agritourism across New York—and eventually beyond.
         </p>
       </section>
