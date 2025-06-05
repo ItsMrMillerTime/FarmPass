@@ -1,6 +1,6 @@
-# Farm Pass
+# Farm Hopper Pass
 
-A simple, responsive static website for the Farm Pass app idea.  
+A simple, responsive static website for the Farm Hopper Pass app idea.  
 This repo provides a quick “launch pad” you can host (e.g. via GitHub Pages) while you build out the full backend.
 
 ## 🚀 Features
@@ -44,4 +44,4 @@ This repo provides a quick “launch pad” you can host (e.g. via GitHub Pages)
 
 This is a starting point—feel free to edit, customize, and extend! If you hit any issues or have suggestions, open a PR or issue in this repo.
 
-Happy launching Farm Pass! 🐄🌾🚜
+Happy launching Farm Hopper Pass! 🐄🌾🚜
