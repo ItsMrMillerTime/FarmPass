@@ -1,53 +1,106 @@
-// /components/NavBar.js
 "use client";
-import { useState } from 'react';
-import Link from 'next/link';
+
+import { useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation"; // App Router hook
 
 export default function NavBar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname(); // e.g. "/", "/about", "/faq", etc.
+
+  // Helper function to check if a link is “active”
+  const isActive = (href) => {
+    // If you want exact-match: return pathname === href
+    // If you want “startsWith” (e.g. /for-farms/subpage still highlights /for-farms): use startsWith
+    return pathname === href;
+  };
 
   return (
     <nav className="sticky top-0 z-50 bg-white shadow">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-40">
-          
-          {/* Logo Section */}
-<div className="flex-shrink-0 flex items-center">
-  <Link href="/">
-    <a>
-      <img
-        src="/logo.png"
-        alt="Farm Hopper Pass"
-        className="h-40 sm:h-40 w-auto"
-      />
-    </a>
-  </Link>
-</div>
-
-          {/* Desktop Menu */}
-          <div className="hidden sm:flex sm:space-x-8 sm:items-center">
+        {/* Header height: 96px on mobile, 160px on ≥640px */}
+        <div className="flex justify-between h-24 sm:h-40">
+          {/* Logo */}
+          <div className="flex-shrink-0 flex items-center">
             <Link href="/">
-              <a className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
+              <a>
+                <img
+                  src="/logo.png"
+                  alt="Farm Hopper Pass"
+                  className="h-16 sm:h-40 w-auto"
+                />
+              </a>
+            </Link>
+          </div>
+
+          {/* Desktop Links (hidden on mobile) */}
+          <div className="hidden sm:flex sm:space-x-8 sm:items-center">
+            {/* HOME */}
+            <Link href="/">
+              <a
+                className={
+                  (isActive("/")
+                    ? "underline text-gray-900"
+                    : "text-gray-700 hover:underline hover:text-gray-900") +
+                  " px-3 py-2 text-base sm:text-lg font-medium"
+                }
+              >
                 Home
               </a>
             </Link>
+
+            {/* ABOUT */}
             <Link href="/about">
-              <a className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
+              <a
+                className={
+                  (isActive("/about")
+                    ? "underline text-gray-900"
+                    : "text-gray-700 hover:underline hover:text-gray-900") +
+                  " px-3 py-2 text-base sm:text-lg font-medium"
+                }
+              >
                 About
               </a>
             </Link>
+
+            {/* FAQ */}
             <Link href="/faq">
-              <a className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
+              <a
+                className={
+                  (isActive("/faq")
+                    ? "underline text-gray-900"
+                    : "text-gray-700 hover:underline hover:text-gray-900") +
+                  " px-3 py-2 text-base sm:text-lg font-medium"
+                }
+              >
                 FAQ
               </a>
             </Link>
+
+            {/* FOR FARMS */}
             <Link href="/for-farms">
-              <a className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
+              <a
+                className={
+                  (isActive("/for-farms")
+                    ? "underline text-gray-900"
+                    : "text-gray-700 hover:underline hover:text-gray-900") +
+                  " px-3 py-2 text-base sm:text-lg font-medium"
+                }
+              >
                 For Farms
               </a>
             </Link>
+
+            {/* CONTACT */}
             <Link href="/contact">
-              <a className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
+              <a
+                className={
+                  (isActive("/contact")
+                    ? "underline text-gray-900"
+                    : "text-gray-700 hover:underline hover:text-gray-900") +
+                  " px-3 py-2 text-base sm:text-lg font-medium"
+                }
+              >
                 Contact
               </a>
             </Link>
@@ -62,16 +115,14 @@ export default function NavBar() {
               className="inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
-              {/* Hamburger icon */}
               {mobileMenuOpen ? (
-                // X icon when open
+                // X icon
                 <svg
                   className="block h-6 w-6"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
-                  aria-hidden="true"
                 >
                   <path
                     strokeLinecap="round"
@@ -81,14 +132,13 @@ export default function NavBar() {
                   />
                 </svg>
               ) : (
-                // Hamburger icon when closed
+                // Hamburger icon
                 <svg
                   className="block h-6 w-6"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
-                  aria-hidden="true"
                 >
                   <path
                     strokeLinecap="round"
@@ -107,42 +157,72 @@ export default function NavBar() {
       {mobileMenuOpen && (
         <div className="sm:hidden" id="mobile-menu">
           <div className="px-2 pt-2 pb-3 space-y-1">
+            {/* HOME */}
             <Link href="/">
               <a
                 onClick={() => setMobileMenuOpen(false)}
-                className="block text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-base font-medium"
+                className={
+                  (isActive("/")
+                    ? "underline text-gray-900"
+                    : "text-gray-700 hover:underline hover:text-gray-900") +
+                  " block px-3 py-2 rounded-md text-base font-medium"
+                }
               >
                 Home
               </a>
             </Link>
+            {/* ABOUT */}
             <Link href="/about">
               <a
                 onClick={() => setMobileMenuOpen(false)}
-                className="block text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-base font-medium"
+                className={
+                  (isActive("/about")
+                    ? "underline text-gray-900"
+                    : "text-gray-700 hover:underline hover:text-gray-900") +
+                  " block px-3 py-2 rounded-md text-base font-medium"
+                }
               >
                 About
               </a>
             </Link>
+            {/* FAQ */}
             <Link href="/faq">
               <a
                 onClick={() => setMobileMenuOpen(false)}
-                className="block text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-base font-medium"
+                className={
+                  (isActive("/faq")
+                    ? "underline text-gray-900"
+                    : "text-gray-700 hover:underline hover:text-gray-900") +
+                  " block px-3 py-2 rounded-md text-base font-medium"
+                }
               >
                 FAQ
               </a>
             </Link>
+            {/* FOR FARMS */}
             <Link href="/for-farms">
               <a
                 onClick={() => setMobileMenuOpen(false)}
-                className="block text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-base font-medium"
+                className={
+                  (isActive("/for-farms")
+                    ? "underline text-gray-900"
+                    : "text-gray-700 hover:underline hover:text-gray-900") +
+                  " block px-3 py-2 rounded-md text-base font-medium"
+                }
               >
                 For Farms
               </a>
             </Link>
+            {/* CONTACT */}
             <Link href="/contact">
               <a
                 onClick={() => setMobileMenuOpen(false)}
-                className="block text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-base font-medium"
+                className={
+                  (isActive("/contact")
+                    ? "underline text-gray-900"
+                    : "text-gray-700 hover:underline hover:text-gray-900") +
+                  " block px-3 py-2 rounded-md text-base font-medium"
+                }
               >
                 Contact
               </a>
